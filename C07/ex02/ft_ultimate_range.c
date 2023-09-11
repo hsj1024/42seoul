@@ -1,24 +1,23 @@
 #include <stdlib.h>
 
-int	ft_ultimate_range(int	**range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	*p;
 	int	i;
+	int	*tab;
 
-	i = 0;
 	if (min >= max)
 	{
-		p = NULL;
+		*range = NULL;
 		return (0);
 	}
-	if (!(p = malloc(sizeof(int) * (max - min))))
-		return (-1);
-	if (min < max)
+	tab = (int*)malloc(sizeof(*tab) * (max - min));
+	i = 0;
+	while (min < max)
 	{
-		p[i] = min;
+		tab[i] = min;
 		i++;
 		min++;
 	}
-	*range = p;
+	*range = tab;
 	return (i);
 }
